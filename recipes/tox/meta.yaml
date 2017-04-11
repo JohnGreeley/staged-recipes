@@ -1,0 +1,55 @@
+package:
+  name: tox
+  version: "2.7.0"
+
+source:
+  fn: tox-2.7.0.tar.gz
+  url: https://pypi.python.org/packages/99/20/2fd208e75c05975bf6436258f469aa233045b93d195cdb442045de0923cc/tox-2.7.0.tar.gz
+  md5: 86cced6aa7be700f918eaca41d02ad69
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - py >=1.4.17
+    - pluggy >=0.3.0,<1.0
+
+  run:
+    - python
+    - py >=1.4.17
+    - pluggy >=0.3.0,<1.0
+
+test:
+  # Python imports
+  imports:
+    - tox
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - tox --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  requires:
+    - tox
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://tox.readthedocs.org/
+  license: MIT License
+  summary: 'virtualenv-based automation of test activities'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
